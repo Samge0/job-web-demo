@@ -2,7 +2,7 @@
 基于 Flask / Jinja2 / Bootstrap / MySQL 开发，仿照拉勾网的风格，实现了招聘网站的必需功能
 
 ## 环境
-* Python 3
+* Python 3.8
 * MySQL
 
 ## 快速开始
@@ -25,6 +25,12 @@ $ pip3 install -r requirements.txt
 #### 4. 利用 flask-migrate 建表
 
 命令行终端，先进入项目目录，然后依次执行下列命令：
+
+- set FLASK_APP 的方式可能失效，可以改为在项目根目录创建一个名为 .env 的文件，添加配置:
+```shell
+FLASK_APP=manage.py
+PYTHONPATH=.
+```
 
 ```sh
 $ export FLASK_APP=manage.py

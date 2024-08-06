@@ -18,7 +18,8 @@ def index():
             companies.append(c)
             if len(companies) == 8:
                 break
-    jobs = Job.query.group_by(Job.company_id).order_by(Job.updated_at.desc()).limit(12)
+    jobs = Job.query.order_by(Job.updated_at.desc()).limit(12)
+    # jobs = Job.query.group_by(Job.company_id).order_by(Job.updated_at.desc()).limit(12)
     return render_template('index.html', active='index', jobs=jobs, companies=companies)
 
 

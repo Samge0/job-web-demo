@@ -19,7 +19,7 @@ class FakerData(object):
             c.id = int(time.time() * 100000000)
             c.name = fake.word()
             c.email = fake_en.email()
-            # c.phone = random.randint(13900000000, 13999999999)
+            c.phone = random.randint(13900000000, 13999999999)
             c.password = '123456'
             db.session.add(c)
             db.session.commit()
@@ -27,7 +27,7 @@ class FakerData(object):
             d = Company()
             d.name = fake.word() + fake.word() + fake.word() + fake.word()
             d.email = fake_en.email()
-            # d.phone = random.randint(13900000000, 13999999999)
+            d.phone = random.randint(13900000000, 13999999999)
             d.password = '123456'
             d.logo = 'https://www.zhipin.com/v2/chat_v2/images/v2/defaultlogov2.jpg'
             d.address = fake.word()
@@ -60,3 +60,12 @@ def run():
     f = FakerData()
     f.fake_user()
     f.fake_job()
+
+
+# 补全缺失的测试代码
+if __name__ == '__main__':
+    from job_web.app import create_app
+    app = create_app('development')
+    with app.app_context():
+        run()
+    print("all done")
